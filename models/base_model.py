@@ -34,3 +34,8 @@ class BaseModel:
         Dict['created_at'] = self.created_at.isoformat()
         Dict['updated_at'] = self.updated_at.isoformat()
         return Dict
+classes = {
+    'BaseModel': BaseModel,
+    
+    # Add other classes here
+}
