@@ -84,18 +84,21 @@ class HBNBCommand(cmd.Cmd):
         """Prints all string representations of all instances based on the class name"""
         args = arg.split()
 
-        if args and args[0] not in models.storage.all_classes():
+        if args and args[0] not in models.classes:
             print("** class doesn't exist **")
             return
 
         instances = []
         if args:
             class_name = args[0]
-            instances.extend(models.storage.all(class_name).values())
+            for key, value in models.storage.all().items():
+                if class_name in key:
+                    instances.append(str(value))
         else:
-            instances.extend(models.storage.all().values())
+            for value in models.storage.all().values():
+                instances.append(str(value))
 
-        print([str(instance) for instance in instances])
+        print(instances)
 
     def do_update(self, arg):
         """Updates an instance based on the class name and id by adding or updating an attribute"""
