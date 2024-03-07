@@ -140,10 +140,7 @@ class HBNBCommand(cmd.Cmd):
 
         if len(args) < 4:
             print("** value missing **")
-<<<<<<< HEAD
             return
-=======
-            return
+            
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
->>>>>>> 9771a3a3baf0459560a3036b06a049c32ed4e0d1
