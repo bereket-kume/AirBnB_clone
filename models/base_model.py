@@ -1,21 +1,27 @@
 #!/usr/bin/python3
 import uuid
 from datetime import datetime
+from models import storage
 
 class BaseModel:
-    def __init__(self, *args, **kwargs):
-        if kwargs:
-            for key, value in kwargs.item():
-                if key != '__class__':
-                    if key in ['created_at', 'updated_at']:
-                        value = datetime.strptime(value, '%Y-%m-%dT%H:%M:%S.%f')
-                        setattr(self, key, value)
 
+    def save(self):
+        """Save the instance to the storage"""
+        self.updated_at = datetime.now()
+        storage.save()
+
+    def __init__(self, *args, **kwargs):
+        """Initialize a new instance"""
+        if kwargs:
+            for key, value in kwargs.items():
+                if key != "__class__":
+                    setattr(self, key, value)
+            self.created_at = datetime.strptime(kwargs["created_at"], "%Y-%m-%dT%H:%M:%S.%f")
+            self.updated_at = datetime.strptime(kwargs["updated_at"], "%Y-%m-%dT%H:%M:%S.%f")
         else:
             self.id = str(uuid.uuid4())
-            self.created_at = datetime.now()
-            self.updated_at = datetime.now()
-
+            self.created_at = self.updated_at = datetime.now()
+            storage.new(self)
     def __str__(self):
         return "[{}] ({}) {}".format(self.__class__.__name__, self.id, self.__dict__)
     
