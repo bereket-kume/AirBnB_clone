@@ -107,7 +107,7 @@ class HBNBCommand(cmd.Cmd):
 
         instances = [str(obj) for key, obj in objects.items() if key.split('.')[0] == class_name]
         print(instances)
-        
+
     def do_update(self, arg):
         """Update an instance based on the class name and id"""
         if not arg:
@@ -139,4 +139,3 @@ class HBNBCommand(cmd.Cmd):
         if len(args) < 4:
             print("** value missing **")
             return
-
