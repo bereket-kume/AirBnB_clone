@@ -19,7 +19,7 @@ class HBNBCommand(cmd.Cmd):
 
     def do_update(self):
         pass
-    
+
     def do_help(self, line):
         if line == 'quit':
             print('Quit command to exit the program\n')
@@ -35,6 +35,7 @@ class HBNBCommand(cmd.Cmd):
         return True
     
     def emptyline(self):
+        """Do nothingwhen an empty line is entered"""
         pass
 
 if __name__ == '__main__':
