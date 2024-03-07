@@ -1,5 +1,5 @@
 import json
-from models.base_model import BaseModel
+
 class FileStorage:
     __file_path = "file.json"
     __objects = {}
@@ -25,8 +25,7 @@ class FileStorage:
                 for key, value in json_dict.items():
                     class_name, obj_id = key.split('.')
                     module_name = class_name.lower()
-                    module = __import__('models.' + module_name, fromlist=[class_name])
-                    class_ = getattr(module, class_name)
+                    class_ = eval(class_name)
                     obj = class_(**value)
                     FileStorage.__objects[key] = obj
         except FileNotFoundError:
