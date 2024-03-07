@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 import json
 from models.place import Place
 from models.state import State

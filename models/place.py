@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 from models.base_model import BaseModel
 class Place(BaseModel):
     """create class called Place"""
@@ -15,4 +17,3 @@ class Place(BaseModel):
         self.latitude = 0.0
         self.longitude = 0.0
         self.amenity_ids = []
-        
