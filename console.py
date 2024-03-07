@@ -1,5 +1,5 @@
 import cmd
-import models
+from models import storage
 from models.base_model import BaseModel
 from models.user import User
 from models.place import Place
@@ -32,11 +32,12 @@ class HBNBCommand(cmd.Cmd):
             return
 
         class_name = arg.split()[0]
-        if class_name not in models.classes:
+        classes = {"BaseModel": BaseModel, "User": User, "Place": Place, "State": State, "City": City, "Amenity": Amenity, "Review": Review}
+        if class_name not in classes:
             print("** class doesn't exist **")
             return
 
-        new_instance = models.classes[class_name]()
+        new_instance = classes[class_name]()
         new_instance.save()
         print(new_instance.id)
 
@@ -48,7 +49,8 @@ class HBNBCommand(cmd.Cmd):
 
         args = arg.split()
         class_name = args[0]
-        if class_name not in models.classes:
+        classes = {"BaseModel": BaseModel, "User": User, "Place": Place, "State": State, "City": City, "Amenity": Amenity, "Review": Review}
+        if class_name not in classes:
             print("** class doesn't exist **")
             return
 
@@ -58,7 +60,7 @@ class HBNBCommand(cmd.Cmd):
 
         instance_id = args[1]
         key = "{}.{}".format(class_name, instance_id)
-        objects = models.storage.all()
+        objects = storage.all()
         if key in objects:
             print(objects[key])
         else:
@@ -72,7 +74,8 @@ class HBNBCommand(cmd.Cmd):
 
         args = arg.split()
         class_name = args[0]
-        if class_name not in models.classes:
+        classes = {"BaseModel": BaseModel, "User": User, "Place": Place, "State": State, "City": City, "Amenity": Amenity, "Review": Review}
+        if class_name not in classes:
             print("** class doesn't exist **")
             return
 
@@ -82,22 +85,23 @@ class HBNBCommand(cmd.Cmd):
 
         instance_id = args[1]
         key = "{}.{}".format(class_name, instance_id)
-        objects = models.storage.all()
+        objects = storage.all()
         if key in objects:
             del objects[key]
-            models.storage.save()
+            storage.save()
         else:
             print("** no instance found **")
 
     def do_all(self, arg):
         """Print string representation of all instances or of a specific class"""
-        objects = models.storage.all()
+        objects = storage.all()
+        classes = {"BaseModel": BaseModel, "User": User, "Place": Place, "State": State, "City": City, "Amenity": Amenity, "Review": Review}
         if not arg:
             print([str(obj) for obj in objects.values()])
             return
 
         class_name = arg.split()[0]
-        if class_name not in models.classes:
+        if class_name not in classes:
             print("** class doesn't exist **")
             return
 
@@ -112,7 +116,8 @@ class HBNBCommand(cmd.Cmd):
 
         args = arg.split()
         class_name = args[0]
-        if class_name not in models.classes:
+        classes = {"BaseModel": BaseModel, "User": User, "Place": Place, "State": State, "City": City, "Amenity": Amenity, "Review": Review}
+        if class_name not in classes:
             print("** class doesn't exist **")
             return
 
@@ -122,7 +127,7 @@ class HBNBCommand(cmd.Cmd):
 
         instance_id = args[1]
         key = "{}.{}".format(class_name, instance_id)
-        objects = models.storage.all()
+        objects = storage.all()
         if key not in objects:
             print("** no instance found **")
             return
@@ -135,12 +140,3 @@ class HBNBCommand(cmd.Cmd):
             print("** value missing **")
             return
 
-        attribute_name = args[2]
-        value = args[3]
-        obj = objects[key]
-        setattr(obj, attribute_name, value)
-        models.storage.save()
-
-
-if __name__ == "__main__":
-    HBNBCommand().cmdloop()
