@@ -96,6 +96,12 @@ class HBNBCommand(cmd.Cmd):
 
     def do_all(self, arg):
         """Prints all string representations of all instances based on the class name"""
+        classes = {
+            "BaseModel": BaseModel,
+            "User": User,
+            # Add more class names and their corresponding classes here
+        }
+
         if not arg:
             print("** class name missing **")
             return
