@@ -93,15 +93,11 @@ class HBNBCommand(cmd.Cmd):
             print("** no instance found **")
 
     def do_all(self, arg):
-        """Prints all string representations of all instances based on the class name"""
-        classes = {
-            "BaseModel": BaseModel,
-            "User": User,
-            # Add more class names and their corresponding classes here
-        }
-
+        """Print string representation of all instances or of a specific class"""
+        objects = storage.all()
+        classes = {"BaseModel": BaseModel, "User": User, "Place": Place, "State": State, "City": City, "Amenity": Amenity, "Review": Review}
         if not arg:
-            print("** class name missing **")
+            print([str(obj) for obj in objects.values()])
             return
 
         class_name = arg.split()[0]
@@ -109,13 +105,9 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
             return
 
-        instances = []
-        for instance in models.storage.all().values():
-            if instance.__class__.__name__ == class_name:
-                instances.append(instance)
-
+        instances = [str(obj) for key, obj in objects.items() if key.split('.')[0] == class_name]
         print(instances)
-
+        
     def do_update(self, arg):
         """Update an instance based on the class name and id"""
         if not arg:
