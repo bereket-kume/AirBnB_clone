@@ -1,5 +1,7 @@
+#!/usr/bin/python3
+
 import cmd
-from models import storage
+import models
 from models.base_model import BaseModel
 from models.user import User
 from models.place import Place
@@ -138,4 +140,10 @@ class HBNBCommand(cmd.Cmd):
 
         if len(args) < 4:
             print("** value missing **")
+<<<<<<< HEAD
             return
+=======
+            return
+if __name__ == '__main__':
+    HBNBCommand().cmdloop()
+>>>>>>> 9771a3a3baf0459560a3036b06a049c32ed4e0d1
