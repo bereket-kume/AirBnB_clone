@@ -10,10 +10,13 @@ class HBNBCommand(cmd.Cmd):
             print("\nDocumented commands (type help <topic>):\
                     \n========================================\
                     \nEOF  help  quit\n")
+
     def do_quit(self, line):
         return True
+
     def do_EOF(self, line):
         return True
+    
     def emptyline(self):
         pass
 
