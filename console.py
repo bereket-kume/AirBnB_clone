@@ -159,9 +159,24 @@ class HBNBCommand(cmd.Cmd):
             return
     def do_count(self, arg):
 
+        classes = {
+                "BaseModel": BaseModel,
+                "User": User, 
+                "Place": Place, 
+                "State": State, 
+                "City": City, 
+                "Amenity": Amenity, 
+                "Review": Review
+                }
+
         if not arg:
             print("** class name missing **")
-            return  
+            return
+        class_name = arg.split()[0]
+        if class_name not in classes:
+            print("** class doesn't exist **")
+            return
+        
             
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
