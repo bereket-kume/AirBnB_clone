@@ -22,7 +22,6 @@ class FileStorage:
         if class_name == "User":
             obj = User(**obj_dict)
         elif class_name == "Place":
-            obj_dict.pop("id", None)  # Remove the 'id' key from obj_dict
             obj = Place(**obj_dict)
         elif class_name == "State":
             obj = State(**obj_dict)
