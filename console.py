@@ -172,8 +172,8 @@ class HBNBCommand(cmd.Cmd):
             return
 
         instances = [str(obj)
-            for key, obj in objects.items()
-            if key.split('.')[0] == class_name]
+        for key, obj in objects.items()
+        if key.split('.')[0] == class_name]
         print(instances)
 
     def do_update(self, arg):
