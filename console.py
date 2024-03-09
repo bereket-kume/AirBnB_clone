@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-
 import cmd
 import models
 from models import storage
@@ -15,7 +14,7 @@ from models.review import Review
 class HBNBCommand(cmd.Cmd):
     prompt = "(hbnb) "
 
-    
+
     def default(self, line):
         """Override default method to support User.count() syntax"""
         parts = line.split('.')
@@ -147,7 +146,10 @@ class HBNBCommand(cmd.Cmd):
             print("** no instance found **")
 
     def do_all(self, arg):
-        """Print string representation of all instances or of a specific class"""
+        """
+        Print string representation of
+        all instances or of a specific class
+        """
         objects = storage.all()
         classes = {
                     "BaseModel": BaseModel,
