@@ -64,14 +64,14 @@ class HBNBCommand(cmd.Cmd):
 
         class_name = arg.split()[0]
         classes = {
-                "BaseModel": BaseModel,
-                "User": User,
-                "Place": Place,
-                "State": State,
-                "City": City,
-                "Amenity": Amenity,
-                "Review": Review
-            }
+            "BaseModel": BaseModel,
+            "User": User,
+            "Place": Place,
+            "State": State,
+            "City": City,
+            "Amenity": Amenity,
+            "Review": Review
+        }
         if class_name not in classes:
             print("** class doesn't exist **")
             return
@@ -89,14 +89,14 @@ class HBNBCommand(cmd.Cmd):
         args = arg.split()
         class_name = args[0]
         classes = {
-                "BaseModel": BaseModel,
-                "User": User,
-                "Place": Place,
-                "State": State,
-                "City": City,
-                "Amenity": Amenity,
-                "Review": Review
-            }
+            "BaseModel": BaseModel,
+            "User": User,
+            "Place": Place,
+            "State": State,
+            "City": City,
+            "Amenity": Amenity,
+            "Review": Review
+        }
         if class_name not in classes:
             print("** class doesn't exist **")
             return
@@ -122,14 +122,14 @@ class HBNBCommand(cmd.Cmd):
         args = arg.split()
         class_name = args[0]
         classes = {
-                    "BaseModel": BaseModel,
-                    "User": User,
-                    "Place": Place,
-                    "State": State,
-                    "City": City,
-                    "Amenity": Amenity,
-                    "Review": Review
-                    }
+            "BaseModel": BaseModel,
+            "User": User,
+            "Place": Place,
+            "State": State,
+            "City": City,
+            "Amenity": Amenity,
+            "Review": Review
+        }
         if class_name not in classes:
             print("** class doesn't exist **")
             return
@@ -154,14 +154,14 @@ class HBNBCommand(cmd.Cmd):
         """
         objects = storage.all()
         classes = {
-                    "BaseModel": BaseModel,
-                    "User": User,
-                    "Place": Place,
-                    "State": State,
-                    "City": City,
-                    "Amenity": Amenity,
-                    "Review": Review
-                    }
+            "BaseModel": BaseModel,
+            "User": User,
+            "Place": Place,
+            "State": State,
+            "City": City,
+            "Amenity": Amenity,
+            "Review": Review
+        }
         if not arg:
             print([str(obj) for obj in objects.values()])
             return
@@ -172,8 +172,8 @@ class HBNBCommand(cmd.Cmd):
             return
 
         instances = [str(obj)
-            for key, obj in objects.items()
-            if key.split('.')[0] == class_name]
+                     for key, obj in objects.items()
+                     if key.split('.')[0] == class_name]
         print(instances)
 
     def do_update(self, arg):
@@ -185,14 +185,14 @@ class HBNBCommand(cmd.Cmd):
         args = arg.split()
         class_name = args[0]
         classes = {
-                "BaseModel": BaseModel,
-                "User": User,
-                "Place": Place,
-                "State": State,
-                "City": City,
-                "Amenity": Amenity,
-                "Review": Review
-                }
+            "BaseModel": BaseModel,
+            "User": User,
+            "Place": Place,
+            "State": State,
+            "City": City,
+            "Amenity": Amenity,
+            "Review": Review
+        }
         if class_name not in classes:
             print("** class doesn't exist **")
             return
@@ -219,14 +219,14 @@ class HBNBCommand(cmd.Cmd):
     def do_count(self, arg):
 
         classes = {
-                "BaseModel": BaseModel,
-                "User": User,
-                "Place": Place,
-                "State": State,
-                "City": City,
-                "Amenity": Amenity,
-                "Review": Review
-                }
+            "BaseModel": BaseModel,
+            "User": User,
+            "Place": Place,
+            "State": State,
+            "City": City,
+            "Amenity": Amenity,
+            "Review": Review
+        }
 
         if not arg:
             print("** class name missing **")
