@@ -1,4 +1,4 @@
-AirBNB Clone Console
+**AirBNB Clone Console** <br>
 This is an Airbnb Clone Console project that aims to replicate the functionalities of the Airbnb website through a command-line interface. The project allows users to create, manage, and book accommodations, as well as perform various operations related to users, places, and reviews.
 
 Command Interpreter
