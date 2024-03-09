@@ -176,6 +176,11 @@ class HBNBCommand(cmd.Cmd):
         if class_name not in classes:
             print("** class doesn't exist **")
             return
+        count = 0
+        for obj in storage.all().values():
+            if arg == obj.__class__.__name__:
+                count += 1
+        print(count)
         
             
 if __name__ == '__main__':
