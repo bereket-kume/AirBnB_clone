@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 
 import json
-import models
 from models.place import Place
 from models.state import State
 from models.city import City
@@ -18,12 +17,23 @@ class FileStorage:
     def all(self):
         return FileStorage.__objects
 
-    def _deserialize(self, value):
-        class_name = value['__class__']
-        class_obj = models.classes[class_name]
-        obj_dict = value.copy()
-        del obj_dict['__class__']
-        obj = class_obj(**obj_dict)
+    def _deserialize(self, obj_dict):
+        class_name = obj_dict.get("__class__")
+        classes = {
+            "User": User,
+            "Place": Place,
+            "State": State,
+            "City": City,
+            "Amenity": Amenity,
+            "Review": Review
+        }
+
+        if class_name in classes:
+            class_obj = classes[class_name]
+            obj = class_obj(**obj_dict)
+        else:
+            obj = BaseModel(**obj_dict)
+
         return obj
 
     def _serialize(self, obj):

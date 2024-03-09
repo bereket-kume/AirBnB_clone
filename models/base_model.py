@@ -6,7 +6,6 @@ from datetime import datetime
 
 class BaseModel:
     def __init__(self, id=None, *args, **kwargs):
-        import models
         if kwargs:
             for key, value in kwargs.items():
                 if key != '__class__':
