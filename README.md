@@ -1,10 +1,10 @@
 **AirBNB Clone Console** <br>
 This is an Airbnb Clone Console project that aims to replicate the functionalities of the Airbnb website through a command-line interface. The project allows users to create, manage, and book accommodations, as well as perform various operations related to users, places, and reviews.
 
-Command Interpreter
+**Command Interpreter**<br>
 The command interpreter is the core component of this project. It provides a command-line interface where users can interact with the system by inputting commands and receiving corresponding outputs.
 
-How to Start
+**How to Start**<br>
 To start the AirBNB Clone Console, follow these steps:
 
 Clone the project repository from GitHub: [link to repository].
@@ -13,7 +13,7 @@ Open a terminal or command prompt and navigate to the project directory.
 Run the console.py file using the Python interpreter:
 Copy
 python console.py
-How to Use
+**How to Use**<br>
 Once the console is up and running, you can enter various commands to interact with the AirBNB Clone system. Here are some of the available commands:
 
 help: Displays a list of available commands and their descriptions.
@@ -26,7 +26,7 @@ quit or EOF: Exits the console.
 Examples
 Here are some examples of how to use the AirBNB Clone Console:
 
-To create a new user:
+**To create a new user:**
 Copy
 ("hbnb") create User
 To display the details of a place:
