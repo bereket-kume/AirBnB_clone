@@ -15,6 +15,33 @@ from models.review import Review
 class HBNBCommand(cmd.Cmd):
     prompt = "(hbnb) "
 
+    
+    def default(self, line):
+        """Override default method to support User.count() syntax"""
+        parts = line.split('.')
+        if len(parts) == 2:
+            class_name = parts[0]
+            method_name = parts[1]
+
+            classes = {
+                "BaseModel": BaseModel,
+                "User": User,
+                "Place": Place,
+                "State": State,
+                "City": City,
+                "Amenity": Amenity,
+                "Review": Review
+            }
+
+            if class_name in classes:
+                class_obj = classes[class_name]
+                if hasattr(class_obj, method_name) and callable(getattr(class_obj, method_name)):
+                    method = getattr(class_obj, method_name)
+                    print(method())
+                    return
+
+        super().default(line)
+
     def do_quit(self, arg):
         """Quit command to exit the program"""
         return True
