@@ -33,7 +33,10 @@ class HBNBCommand(cmd.Cmd):
 
             if class_name in classes:
                 class_obj = classes[class_name]
-                if hasattr(class_obj, method_name) and callable(getattr(class_obj, method_name)):
+                has_attr = hasattr(class_obj, method_name)
+                is_callable = callable(getattr(class_obj, method_name))
+
+                if has_attr and is_callable:
                     method = getattr(class_obj, method_name)
                     print(method())
                     return
@@ -168,7 +171,9 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
             return
 
-        instances = [str(obj) for key, obj in objects.items() if key.split('.')[0] == class_name]
+        instances = [str(obj)
+            for key, obj in objects.items()
+            if key.split('.')[0] == class_name]
         print(instances)
 
     def do_update(self, arg):
@@ -210,7 +215,7 @@ class HBNBCommand(cmd.Cmd):
         if len(args) < 4:
             print("** value missing **")
             return
-        
+
     def do_count(self, arg):
 
         classes = {
@@ -235,6 +240,7 @@ class HBNBCommand(cmd.Cmd):
             if arg == obj.__class__.__name__:
                 count += 1
         print(count)
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
