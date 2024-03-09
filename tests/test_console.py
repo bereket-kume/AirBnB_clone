@@ -28,10 +28,6 @@ class TestHBNBCommand(unittest.TestCase):
             output = mock_stdout.getvalue().strip()
             self.assertTrue(output.startswith("** no instance found **"))
 
-   
-   
-
-    
     
 if __name__ == '__main__':
     unittest.main()
