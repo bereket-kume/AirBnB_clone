@@ -13,6 +13,8 @@ class BaseModel:
                         setattr(
                             self, key, datetime.strptime(
                                 value, '%Y-%m-%dT%H:%M:%S.%f'))
+                    elif key == 'id':
+                        setattr(self, key, value)
                     else:
                         setattr(self, key, value)
         else:
