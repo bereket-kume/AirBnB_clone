@@ -62,7 +62,15 @@ class HBNBCommand(cmd.Cmd):
             return
 
         class_name = arg.split()[0]
-        classes = {"BaseModel": BaseModel, "User": User, "Place": Place, "State": State, "City": City, "Amenity": Amenity, "Review": Review}
+        classes = {
+                "BaseModel": BaseModel,
+                "User": User,
+                "Place": Place,
+                "State": State, 
+                "City": City,
+                "Amenity": Amenity, 
+                "Review": Review
+            }
         if class_name not in classes:
             print("** class doesn't exist **")
             return
@@ -79,7 +87,15 @@ class HBNBCommand(cmd.Cmd):
 
         args = arg.split()
         class_name = args[0]
-        classes = {"BaseModel": BaseModel, "User": User, "Place": Place, "State": State, "City": City, "Amenity": Amenity, "Review": Review}
+        classes = {
+                "BaseModel": BaseModel,
+                "User": User, 
+                "Place": Place, 
+                "State": State, 
+                "City": City, 
+                "Amenity": Amenity, 
+                "Review": Review
+            }
         if class_name not in classes:
             print("** class doesn't exist **")
             return
@@ -104,7 +120,15 @@ class HBNBCommand(cmd.Cmd):
 
         args = arg.split()
         class_name = args[0]
-        classes = {"BaseModel": BaseModel, "User": User, "Place": Place, "State": State, "City": City, "Amenity": Amenity, "Review": Review}
+        classes = {
+                    "BaseModel": BaseModel,
+                    "User": User, 
+                    "Place": Place, 
+                    "State": State, 
+                    "City": City, 
+                    "Amenity": Amenity, 
+                    "Review": Review
+                    }
         if class_name not in classes:
             print("** class doesn't exist **")
             return
