@@ -16,6 +16,11 @@ class HBNBCommand(cmd.Cmd):
     prompt = "(hbnb) "
 
     
+   # ... (existing code)
+
+class HBNBCommand(cmd.Cmd):
+    # ... (existing methods)
+
     def default(self, line):
         """Override default method to support User.count() syntax"""
         parts = line.split('.')
@@ -37,7 +42,7 @@ class HBNBCommand(cmd.Cmd):
                 class_obj = classes[class_name]
                 if hasattr(class_obj, method_name) and callable(getattr(class_obj, method_name)):
                     method = getattr(class_obj, method_name)
-                    print(method())
+                    print(method(class_obj))
                     return
 
         super().default(line)
