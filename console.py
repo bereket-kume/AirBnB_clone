@@ -14,7 +14,6 @@ from models.review import Review
 class HBNBCommand(cmd.Cmd):
     prompt = "(hbnb) "
 
-
     def default(self, line):
         """Override default method to support User.count() syntax"""
         parts = line.split('.')
@@ -67,7 +66,7 @@ class HBNBCommand(cmd.Cmd):
                 "Place": Place,
                 "State": State, 
                 "City": City,
-                "Amenity": Amenity, 
+                "Amenity": Amenity,
                 "Review": Review
             }
         if class_name not in classes:
@@ -88,11 +87,11 @@ class HBNBCommand(cmd.Cmd):
         class_name = args[0]
         classes = {
                 "BaseModel": BaseModel,
-                "User": User, 
-                "Place": Place, 
-                "State": State, 
-                "City": City, 
-                "Amenity": Amenity, 
+                "User": User,
+                "Place": Place,
+                "State": State,
+                "City": City,
+                "Amenity": Amenity,
                 "Review": Review
             }
         if class_name not in classes:
@@ -121,11 +120,11 @@ class HBNBCommand(cmd.Cmd):
         class_name = args[0]
         classes = {
                     "BaseModel": BaseModel,
-                    "User": User, 
-                    "Place": Place, 
-                    "State": State, 
-                    "City": City, 
-                    "Amenity": Amenity, 
+                    "User": User,
+                    "Place": Place,
+                    "State": State,
+                    "City": City,
+                    "Amenity": Amenity,
                     "Review": Review
                     }
         if class_name not in classes:
@@ -153,12 +152,13 @@ class HBNBCommand(cmd.Cmd):
         objects = storage.all()
         classes = {
                     "BaseModel": BaseModel,
-                    "User": User, 
+                    "User": User,
                     "Place": Place,
-                    "State": State, 
-                    "City": City, 
-                    "Amenity": Amenity, 
-                    "Review": Review}
+                    "State": State,
+                    "City": City,
+                    "Amenity": Amenity,
+                    "Review": Review
+                    }
         if not arg:
             print([str(obj) for obj in objects.values()])
             return
@@ -181,11 +181,11 @@ class HBNBCommand(cmd.Cmd):
         class_name = args[0]
         classes = {
                 "BaseModel": BaseModel,
-                "User": User, 
-                "Place": Place, 
-                "State": State, 
-                "City": City, 
-                "Amenity": Amenity, 
+                "User": User,
+                "Place": Place,
+                "State": State,
+                "City": City,
+                "Amenity": Amenity,
                 "Review": Review
                 }
         if class_name not in classes:
@@ -214,11 +214,11 @@ class HBNBCommand(cmd.Cmd):
 
         classes = {
                 "BaseModel": BaseModel,
-                "User": User, 
-                "Place": Place, 
-                "State": State, 
-                "City": City, 
-                "Amenity": Amenity, 
+                "User": User,
+                "Place": Place,
+                "State": State,
+                "City": City,
+                "Amenity": Amenity,
                 "Review": Review
                 }
 
