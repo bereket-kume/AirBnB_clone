@@ -6,10 +6,8 @@ from models.base_model import BaseModel
 class Place(BaseModel):
     """create class called Place"""
 
-    def __init__(self,id=None,**kwargs):
-        super().__init__(**kwargs)
-        if id is not None:
-            self.id = id
+    def __init__(self):
+        super().__init__()
         self.city_id = ""
         self.user_id = ""
         self.name = ""
