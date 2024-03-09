@@ -98,7 +98,14 @@ class HBNBCommand(cmd.Cmd):
     def do_all(self, arg):
         """Print string representation of all instances or of a specific class"""
         objects = storage.all()
-        classes = {"BaseModel": BaseModel, "User": User, "Place": Place, "State": State, "City": City, "Amenity": Amenity, "Review": Review}
+        classes = {
+                    "BaseModel": BaseModel,
+                    "User": User, 
+                    "Place": Place,
+                    "State": State, 
+                    "City": City, 
+                    "Amenity": Amenity, 
+                    "Review": Review}
         if not arg:
             print([str(obj) for obj in objects.values()])
             return
@@ -119,7 +126,15 @@ class HBNBCommand(cmd.Cmd):
 
         args = arg.split()
         class_name = args[0]
-        classes = {"BaseModel": BaseModel, "User": User, "Place": Place, "State": State, "City": City, "Amenity": Amenity, "Review": Review}
+        classes = {
+                "BaseModel": BaseModel,
+                "User": User, 
+                "Place": Place, 
+                "State": State, 
+                "City": City, 
+                "Amenity": Amenity, 
+                "Review": Review
+                }
         if class_name not in classes:
             print("** class doesn't exist **")
             return
@@ -142,6 +157,11 @@ class HBNBCommand(cmd.Cmd):
         if len(args) < 4:
             print("** value missing **")
             return
+    def do_count(self, arg):
+
+        if not arg:
+            print("** class name missing **")
+            return  
             
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
