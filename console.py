@@ -64,7 +64,7 @@ class HBNBCommand(cmd.Cmd):
                 "BaseModel": BaseModel,
                 "User": User,
                 "Place": Place,
-                "State": State, 
+                "State": State,
                 "City": City,
                 "Amenity": Amenity,
                 "Review": Review
@@ -210,6 +210,7 @@ class HBNBCommand(cmd.Cmd):
         if len(args) < 4:
             print("** value missing **")
             return
+        
     def do_count(self, arg):
 
         classes = {
@@ -234,7 +235,6 @@ class HBNBCommand(cmd.Cmd):
             if arg == obj.__class__.__name__:
                 count += 1
         print(count)
-        
-            
+
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
