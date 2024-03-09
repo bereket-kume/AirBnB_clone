@@ -19,20 +19,21 @@ class FileStorage:
 
     def _deserialize(self, obj_dict):
         class_name = obj_dict.get("__class__")
-        if class_name == "User":
-            obj = User(**obj_dict)
-        elif class_name == "Place":
-            obj = Place(**obj_dict)
-        elif class_name == "State":
-            obj = State(**obj_dict)
-        elif class_name == "City":
-            obj = City(**obj_dict)
-        elif class_name == "Amenity":
-            obj = Amenity(**obj_dict)
-        elif class_name == "Review":
-            obj = Review(**obj_dict)
+        classes = {
+            "User": User,
+            "Place": Place,
+            "State": State,
+            "City": City,
+            "Amenity": Amenity,
+            "Review": Review
+        }
+
+        if class_name in classes:
+            class_obj = classes[class_name]
+            obj = class_obj(**obj_dict)
         else:
             obj = BaseModel(**obj_dict)
+
         return obj
 
     def _serialize(self, obj):
