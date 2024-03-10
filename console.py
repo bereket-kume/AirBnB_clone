@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 
 import cmd
+import sys
 
 
 class HBNBCommand(cmd.Cmd):
@@ -19,6 +20,15 @@ class HBNBCommand(cmd.Cmd):
         """Do nothing on empty line"""
         pass
 
+    def postcmd(self, stop, line):
+        """Called after a command completes"""
+        if not sys.stdin.isatty():
+            return True
+
 
 if __name__ == '__main__':
-    HBNBCommand().cmdloop()
+    if not sys.stdin.isatty():
+        data = sys.stdin.read()
+        HBNBCommand().onecmd(data)
+    else:
+        HBNBCommand().cmdloop()
