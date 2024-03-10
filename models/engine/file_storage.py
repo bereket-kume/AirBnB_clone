@@ -24,7 +24,11 @@ class FileStorage:
     def reload(self):
         if exists(self.__file_path):
             with open(self.__file_path, mode='r', encoding='utf-8') as file:
-                serialized_objects = json.load(file)
+                data = file.read()
+                if data:
+                    serialized_objects = json.loads(data)
+                else:
+                    serialized_objects = {}
 
             from models.base_model import BaseModel
             for key, obj_dict in serialized_objects.items():
