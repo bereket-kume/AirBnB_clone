@@ -15,6 +15,6 @@ class TestFileStorage(unittest.TestCase):
             with open(self.storage._FileStorage__file_path, "w") as f:
                 f.write("")
 
-    
+
 if __name__ == "__main__":
     unittest.main()
