@@ -1,8 +1,8 @@
-import models
+# models.py
+
 from uuid import uuid4
 from datetime import datetime
-
-
+import models
 class BaseModel:
     def __init__(self, *args, **kwargs):
         if kwargs:
@@ -18,7 +18,9 @@ class BaseModel:
             self.created_at = datetime.now()
             self.updated_at = datetime.now()
             models.storage.new(self)
-
+    classes = {
+    "BaseModel"
+    }
     def save(self):
         self.updated_at = datetime.now()
         models.storage.save()
@@ -32,3 +34,4 @@ class BaseModel:
 
     def __str__(self):
         return "[{}] ({}) {}".format(self.__class__.__name__, self.id, self.__dict__)
+
